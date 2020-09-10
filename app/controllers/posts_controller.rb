@@ -21,13 +21,13 @@ class PostsController < ApplicationController
 		redirect_to post_path(@post)
 	  end
 	   
-	  def update
+	def update
 		@post = Post.find(params[:id])
 		@post.update(post_params(:title))
 		redirect_to post_path(@post)
-	  end
+	end
 	   
-	  private
+	private
 	      
 	  # We pass the permitted fields in as *args;
 	  # this keeps `post_params` pretty dry while
@@ -35,8 +35,8 @@ class PostsController < ApplicationController
 	  # depending on the controller action. This
 	  # should come after the other methods
 	   
-	  def post_params(*args)
+	def post_params(*args)
 		params.require(:post).permit(*args)
-	  end
+	end
 
 end
